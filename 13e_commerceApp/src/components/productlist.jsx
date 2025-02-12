@@ -36,7 +36,7 @@ function ProductList() {
                 📦 {product.title}
               </h2>
               <p className="text-xl font-bold text-green-600 mt-2">
-                💰 ${product.price.toFixed(2)}
+                💰 ${product.price.toFixed()}
               </p>
               <button
                 className="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"

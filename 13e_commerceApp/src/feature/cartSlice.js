@@ -13,25 +13,24 @@ export const cartSlice = createSlice({
             const {id, title, price, image, discription} = action.payload;
             const item = state.cart.find((product) => product.id === action.payload.id)
             if(item){
-                item.qty += 1;
-            }else{
+                item.qty += 0;
+            }else{debugger
                 state.cart.push({id, image, title, discription, price, qty: 1, 
                     totalPrice: price})
             }
         
             // buy 2 get 1 logic
-            state.cart.forEach((product) => {
-                if(product.qty > 2) {
-                  product.qty += 1; // ek item free
-                }
-                product.totalPrice = (product.qty * product.price) - product.price
-            })
+           
            saveDataInLocalStorage(state.cart)
         },
 
-        removeCart : (state, action) => {
+        removeCart: (state, action) => {
+            const item = state.cart.find((product) => product.id === action.payload.id);
+            if (item) {
+                state.totalPrice = item.price * item.quantity; 
+            }
             state.cart = state.cart.filter((product) => product.id !== action.payload.id);
-            saveDataInLocalStorage(state.cart)
+            saveDataInLocalStorage(state.cart);
         },
 
         increaseQty : (state, action) => {

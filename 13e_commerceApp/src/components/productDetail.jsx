@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { addToCart } from "../feature/cartSlice";
+import { ToastContainer, toast } from 'react-toastify';
 
 function ProductDetail() {
   const { id } = useParams();  // iska use URL product ki id dene ke liye use hua hai
@@ -68,11 +69,15 @@ function ProductDetail() {
           <h2 className="text-2xl font-bold text-green-600 mt-4">💰 ${product.price.toFixed()}</h2>
 
           <button
-            onClick={() => dispatch(addToCart(product))}
+            onClick={() => {
+              dispatch(addToCart(product))
+              toast("Added Your Cart!")
+            }}
             className="mt-6 bg-blue-600 text-white text-lg px-6 py-3 rounded-lg hover:bg-blue-700 transition shadow-md"
           >
             🛒 + Add To Cart
           </button>
+          <ToastContainer />
         </div>
       </div>
     </div>

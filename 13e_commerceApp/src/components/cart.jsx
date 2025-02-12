@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { removeCart, increaseQty, decreaseQty } from "../feature/cartSlice";
 
 function Cart() {
@@ -19,7 +19,9 @@ function Cart() {
         🔙 Back to Products
       </button>
 
-      <h1 className="text-3xl font-bold text-gray-800 mb-4">🛒 Your Shopping Cart</h1>
+      <h1 className="text-3xl font-bold text-gray-800 mb-4">
+        🛒 Your Shopping Cart
+      </h1>
 
       {/* jab page empty hoga tab */}
       {cartItems.length === 0 ? (
@@ -43,9 +45,13 @@ function Cart() {
 
               {/* Product Details */}
               <div className="w-1/2">
-                <h2 className="text-xl font-semibold text-gray-800">{product.title}</h2>
+                <h2 className="text-xl font-semibold text-gray-800">
+                  {product.title}
+                </h2>
                 <p className="text-gray-600">{product.description}</p>
-                <h3 className="text-lg font-bold text-green-600">💰 ${product.totalPrice}</h3>
+                <h3 className="text-lg font-bold text-green-600">
+                  💰 ${product.totalPrice.toFixed()}
+                </h3>
               </div>
 
               {/* Quantity Controls */}
@@ -77,9 +83,13 @@ function Cart() {
 
           {/* Total Amount Section */}
           <div className="text-center mt-6">
-            <h2 className="text-2xl font-bold text-gray-800">💰 Total: ${totalAmount.toFixed(2)}</h2>
-            <button className="mt-4 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition shadow-md"
-                    onClick={() => navigate("/chekout")}>
+            <h2 className="text-2xl font-bold text-gray-800">
+              💰 Total: ${totalAmount.toFixed()}
+            </h2>
+            <button
+              className="mt-4 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition shadow-md"
+              onClick={() => navigate("/chekout")}
+            >
               ✅ Proceed to Checkout
             </button>
           </div>
