@@ -11,7 +11,7 @@ function Register() {
   const submition = (e) => {
     e.preventDefault();
 
-    const users = { name, email, password };
+    const users = { name, email, password }; // 
     const existingUser = JSON.parse(localStorage.getItem("users")) || []; // json.parse ye local storage se users ke name ki key ka data nikal ta hai agar data maujud nahi hai to null dikhata hai
     existingUser.push(users); // ye new user ko push karta hai users me
     localStorage.setItem("users", JSON.stringify(existingUser)); // ye sabhi data ko string me badal ta hai
