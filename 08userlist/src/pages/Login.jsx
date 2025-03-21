@@ -21,7 +21,7 @@ function Login() {
      // agar data sahi hai to login success ka message print karao nahi to error batao
      if(user) {
       alert(`Welcome ${user.name}`);
-      setErrorMessage("");
+      
      }else{
       setErrorMessage("Invalid userdata, please try again!");
      }
